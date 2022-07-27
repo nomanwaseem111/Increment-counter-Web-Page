@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>New Project</title>
+</head>
+
+<body>
+
+<div class="main_container">
+  <div class="counter_container">
+    <i class="fa-solid fa-mug-hot fa-5x"></i>
+    <div class="counter" data-target="4000"></div>
+    <span class="lastLine">Project Completed</span>
+  </div>
+
+  <div class="counter_container">
+    <i class="fa-solid fa-users fa-5x"></i>
+    <div class="counter" data-target="15000"></div>
+    <span class="lastLine">Our Happy Clients</span>
+  </div>
+
+  <div class="counter_container">
+    <i class="fa-solid fa-tasks fa-5x"></i>
+    <div class="counter" data-target="500"></div>
+    <span class="lastLine">Ongoing Project</span>
+  </div>
+</div>
+
+
+  <script>
+
+const counters = document.querySelectorAll('.counter');
+
+
+counters.forEach((counter) =>{
+    // console.log(counter);
+    counter.innerHTML = 0;
+
+
+    const updateCounter = () =>{
+        const targetCount = counter.getAttribute('data-target');
+        // console.log(targetCount);
+
+        const startingCount = Number(counter.innerHTML);
+
+        const incr = targetCount / 100;
+
+        if(startingCount < targetCount){
+            counter.innerHTML = `${startingCount + incr}`
+            setTimeout(updateCounter,10)
+
+        }
+
+    }
+
+    updateCounter()
+})
+
+
+
+  </script>
+
+
+</body>
+
+</html>
